@@ -1,47 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/04 12:34:32 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/15 17:03:40 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
 
-}
-
-int	upphex(unsigned int hex)
+int	ft_isalpha(int c)
 {
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
-	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
-	}
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
 	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
+		return (0);
 }
 /*
+
+#include <unistd.h>
 int	main(void)
 {
-	char	*ptr = "";
+	int	i;
 
-	printf("%p\n", ptr);
-	ptrval(ptr);
+	i = ft_isalpha('?');
+	if (i == 1)
+		write(1, "1", 1);
+	else
+		write(1, "Nuhuh", 5);
 	return (0);
 }*/

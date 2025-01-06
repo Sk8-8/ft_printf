@@ -1,47 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/05 16:30:33 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/07 19:06:32 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i != n)
+	{
+		((unsigned char *)s)[i] = c;
+		i++;
+	}
+	return (s);
+}
+/*
+
 #include <stdio.h>
-#include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
-
-}
-
-int	upphex(unsigned int hex)
-{
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
-	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
-	}
-	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
-}
-/*
 int	main(void)
 {
-	char	*ptr = "";
-
-	printf("%p\n", ptr);
-	ptrval(ptr);
+	char	str[] = "test";
+	ft_memset(str, 75, 4);
+	printf("%p\n", str);
+	printf("%s\n", str);
 	return (0);
 }*/

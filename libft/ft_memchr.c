@@ -1,47 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/05 17:59:51 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/11 19:27:40 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <string.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
 
-}
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t	i;
 
-int	upphex(unsigned int hex)
-{
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
+	i = 0;
+	while (i < n)
 	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)s + i);
+		i++;
 	}
-	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
+	return (NULL);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
-	char	*ptr = "";
-
-	printf("%p\n", ptr);
-	ptrval(ptr);
+	printf("%p\n", ft_memchr("test", 's', 1));
+	printf("%p\n", ft_memchr("test", 's', 3));
+	printf("%p\n", ft_memchr("test", 'z', 1));
 	return (0);
 }*/

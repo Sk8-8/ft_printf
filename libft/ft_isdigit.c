@@ -1,47 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/05 14:26:55 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/15 17:04:10 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
 
-}
-
-int	upphex(unsigned int hex)
+int	ft_isdigit(int c)
 {
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
-	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
-	}
+	if (c >= '0' && c <= '9')
+		return (1);
 	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
+		return (0);
 }
-/*
-int	main(void)
-{
-	char	*ptr = "";
-
-	printf("%p\n", ptr);
-	ptrval(ptr);
-	return (0);
-}*/

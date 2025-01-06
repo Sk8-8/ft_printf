@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/12 15:01:59 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/25 19:19:45 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
 
-}
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+	size_t	i;
+	size_t	len;
 
-int	upphex(unsigned int hex)
-{
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
+	i = 0;
+	len = ft_strlen(s);
+	dup = malloc(sizeof(char) * (len + 1));
+	if (dup == NULL)
+		return (NULL);
+	while (i <= len)
 	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
+		dup[i] = s[i];
+		i ++;
 	}
-	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
+	return (dup);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
-	char	*ptr = "";
+	const char	*test;
 
-	printf("%p\n", ptr);
-	ptrval(ptr);
+	test = "test";
+	printf("%p\n", test);
+	printf("%p\n", ft_strdup(test));
 	return (0);
 }*/

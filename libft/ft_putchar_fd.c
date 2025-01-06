@@ -1,47 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/15 16:07:52 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/15 16:09:44 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
+#include <unistd.h>
 
-}
-
-int	upphex(unsigned int hex)
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_toupper(lowhex(hex));
+	write(fd, &c, 1);
 }
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
-	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
-	}
-	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
-}
-/*
-int	main(void)
-{
-	char	*ptr = "";
-
-	printf("%p\n", ptr);
-	ptrval(ptr);
-	return (0);
-}*/

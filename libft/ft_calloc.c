@@ -1,47 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/12 14:30:31 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/28 15:49:46 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
+#include <stdlib.h>
 
-}
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
 
-int	upphex(unsigned int hex)
-{
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
+	ptr = malloc(size * nmemb);
 	if (ptr == NULL)
-	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
-	}
-	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
+		return (NULL);
+	ft_bzero(ptr, size * nmemb);
+	return (ptr);
 }
-/*
-int	main(void)
-{
-	char	*ptr = "";
-
-	printf("%p\n", ptr);
-	ptrval(ptr);
-	return (0);
-}*/

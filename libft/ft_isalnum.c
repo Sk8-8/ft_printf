@@ -1,47 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/05 14:30:01 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/15 17:32:48 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
 
-}
-
-int	upphex(unsigned int hex)
+int	ft_isalnum(int c)
 {
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
-	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
-	}
+	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
+		return (1);
 	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
-	}
+		return (0);
 }
 /*
+#include <unistd.h>
 int	main(void)
 {
-	char	*ptr = "";
+	int	i;
 
-	printf("%p\n", ptr);
-	ptrval(ptr);
+	i = ft_isalnum('c');
+	if (i == 1)
+		write(1, "yes", 3);
+	else
+		write(1, "no", 2);
 	return (0);
 }*/

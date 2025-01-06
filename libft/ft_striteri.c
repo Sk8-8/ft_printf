@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:39:30 by kguillem         ###   ########.fr       */
+/*   Created: 2024/11/16 12:20:13 by kguillem          #+#    #+#             */
+/*   Updated: 2024/11/16 15:13:05 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
 
-}
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
-int	upphex(unsigned int hex)
-{
-	ft_toupper(lowhex(hex));
-}
-*/
-int	ptrval(void *ptr)
-{
-	if (ptr == NULL)
+	i = 0;
+	if (s && f)
 	{
-		ft_putstr_fd("(nil)", 0);
-		return (0);
-	}
-	else
-	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
+		while (*s)
+		{
+			f(i, s);
+			i++;
+			s++;
+		}
 	}
 }
 /*
+#include <stdio.h>
+
+void	test(unsigned int i, char *c)
+{
+	if (c[i] >= '0' && c[i] <= '9')
+		printf("%c\n", c[i]);
+}
+
 int	main(void)
 {
-	char	*ptr = "";
-
-	printf("%p\n", ptr);
-	ptrval(ptr);
+	char	*str = "0123456789";
+	ft_striteri(str, &test);
 	return (0);
 }*/

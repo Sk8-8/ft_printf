@@ -6,11 +6,12 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:59:44 by kguillem          #+#    #+#             */
-/*   Updated: 2024/12/17 19:03:48 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:58:58 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
+#include "libft.h"
 
 int	ft_printf(char *str, ...)
 {
@@ -32,26 +33,26 @@ int	ft_printf(char *str, ...)
 			{
 				len += ft_strlen(va_arg(arglst, char*));
 				if (va_arg(arglst, char*) != NULL)
-					ft_putstr(va_arg(arglst, char*));
+					ft_putstr_fd(va_arg(arglst, char*), 0);
 				else
-					ft_putstr("(null)");
+					ft_putstr_fd("(null)", 0);
 			}
 			if (str[i] == 'u')
-				len +=
+				len += 0; // XXX
 			if (str[i] == '%')
 			{
 				len ++;
-				ft_putchar('%');
+				ft_putchar_fd('%', 0);
 			}
 			if (str[i] == 'c')
 			{
 				len ++;
-				ft_putchar(va_arg(arglst, char));
+				ft_putchar_fd(va_arg(arglst, int), 0);
 			}
 			if (str[i] == 'u')
 			{
-				len += uintlen(va_arg(arglst, unsigned int));
-				affuint(va_arg(arglst, unsigned int));
+			//	len += uintlen(va_arg(arglst, unsigned int));
+			//	affuint(va_arg(arglst, unsigned int));
 			}
 			if (str[i] == 'x')
 			{
@@ -62,20 +63,28 @@ int	ft_printf(char *str, ...)
 			if (str[i] == 'p')
 			{
 			}
-
+			
 		}
 		else
 		{
 			write(1, &str[i], 1);
 			len ++;
 		}
-
-
+		i ++;
 	}
 	va_end(arglst);
 	return (len);
 }
 
+#include <stdio.h>
+
+int	main(void)
+{
+	char*	str = "test";
+	printf("%s\n", str);
+	ft_printf("%s", str);
+	return (0);
+}
 /**
   s : string (et penser au (null) )
   d i : int
