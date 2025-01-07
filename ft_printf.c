@@ -6,12 +6,12 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:59:44 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/06 14:58:58 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:50:10 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "libft.h"
+#include "libft/libft.h"
 
 int	ft_printf(char *str, ...)
 {
@@ -28,7 +28,7 @@ int	ft_printf(char *str, ...)
 		{
 			i ++;
 			if (str[i] == 'd' || str[i] == 'i')
-				//len += ft_putnbr(va_arg(arglst, int));
+				//	len += ft_putnbr_fd(va_arg(arglst, int), 0);
 			if (str[i] == 's')
 			{
 				len += ft_strlen(va_arg(arglst, char*));
@@ -41,7 +41,7 @@ int	ft_printf(char *str, ...)
 				len += 0; // XXX
 			if (str[i] == '%')
 			{
-				len ++;
+				len++;
 				ft_putchar_fd('%', 0);
 			}
 			if (str[i] == 'c')
@@ -80,9 +80,14 @@ int	ft_printf(char *str, ...)
 
 int	main(void)
 {
-	char*	str = "test";
-	printf("%s\n", str);
-	ft_printf("%s", str);
+//	char*	str = "test";
+	int	i = 0;
+	i = printf("%%  --- %s");
+	printf("%d\n", i);
+	printf("%%\n");
+	i = ft_printf("%%");
+	printf("%d\n", i);
+	ft_printf("%%\n");
 	return (0);
 }
 /**
@@ -94,5 +99,4 @@ int	main(void)
   c : putchar mdr
  * u : put unsigned number 
   %% : afficher %
- * */
-
+**/
