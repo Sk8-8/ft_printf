@@ -6,12 +6,14 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:59:44 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/07 17:50:10 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/10 14:20:44 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "libft/libft.h"
+
+int	ft_putnbr_printf(int n);
 
 int	ft_printf(char *str, ...)
 {
@@ -28,26 +30,26 @@ int	ft_printf(char *str, ...)
 		{
 			i ++;
 			if (str[i] == 'd' || str[i] == 'i')
-				//	len += ft_putnbr_fd(va_arg(arglst, int), 0);
+				len +=	ft_putnbr_printf(va_arg(arglst, int));
 			if (str[i] == 's')
 			{
 				len += ft_strlen(va_arg(arglst, char*));
-				if (va_arg(arglst, char*) != NULL)
-					ft_putstr_fd(va_arg(arglst, char*), 0);
+				if (va_arg(arglst, char*) == NULL)
+					ft_putstr_fd("(null)", 1);
 				else
-					ft_putstr_fd("(null)", 0);
+					ft_putstr_fd(va_arg(arglst, char*), 1);
 			}
 			if (str[i] == 'u')
 				len += 0; // XXX
 			if (str[i] == '%')
 			{
 				len++;
-				ft_putchar_fd('%', 0);
+				ft_putchar_fd('%', 1);
 			}
 			if (str[i] == 'c')
 			{
 				len ++;
-				ft_putchar_fd(va_arg(arglst, int), 0);
+				ft_putchar_fd(va_arg(arglst, int), 1);
 			}
 			if (str[i] == 'u')
 			{
@@ -80,18 +82,18 @@ int	ft_printf(char *str, ...)
 
 int	main(void)
 {
-//	char*	str = "test";
+	char*	ch = "test";
 	int	i = 0;
-	i = printf("%%  --- %s");
+	i = printf("%%%s\n", ch);
 	printf("%d\n", i);
-	printf("%%\n");
-	i = ft_printf("%%");
+	printf("%%%s\n", ch);
+	i = ft_printf("%%%s\n", ch);
 	printf("%d\n", i);
-	ft_printf("%%\n");
+	ft_printf("%%%s\n", ch);
 	return (0);
 }
 /**
-  s : string (et penser au (null) )
+ * s : string (et penser au (null) )
   d i : int
  * x : low hexa
  * X : hexa (en maj)
