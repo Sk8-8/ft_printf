@@ -36,3 +36,23 @@ int	ft_putnbr_printf(int n)
 	len += write(1, &c, 1);
 	return (len);
 }
+
+int	ft_putstr_printf(char* str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+	{
+		i = 6;
+		write(1, "(null)", 6);
+	}
+	else
+	{
+		while (str[i])
+		{
+			i += write(1, &str[i], 1);
+		}
+	}
+	return (i);
+}

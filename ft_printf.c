@@ -13,6 +13,8 @@
 #include <stdarg.h>
 #include "libft/libft.h"
 
+int	ft_putstr_printf(char *str);
+
 int	ft_putnbr_printf(int n);
 
 int	ft_printf(char *str, ...)
@@ -33,11 +35,7 @@ int	ft_printf(char *str, ...)
 				len +=	ft_putnbr_printf(va_arg(arglst, int));
 			if (str[i] == 's')
 			{
-				len += ft_strlen(va_arg(arglst, char*));
-				if (va_arg(arglst, char*) == NULL)
-					ft_putstr_fd("(null)", 1);
-				else
-					ft_putstr_fd(va_arg(arglst, char*), 1);
+				len += ft_putstr_printf(va_arg(arglst, char*));
 			}
 			if (str[i] == 'u')
 				len += 0; // XXX
@@ -82,14 +80,14 @@ int	ft_printf(char *str, ...)
 
 int	main(void)
 {
-	char*	ch = "test";
+	char*	ch = NULL;
 	int	i = 0;
-	i = printf("%%%s\n", ch);
+	i = printf("%s\n", ch);
 	printf("%d\n", i);
-	printf("%%%s\n", ch);
-	i = ft_printf("%%%s\n", ch);
+	printf("%s\n", ch);
+	i = ft_printf("%s\n", ch);
 	printf("%d\n", i);
-	ft_printf("%%%s\n", ch);
+	ft_printf("%s\n", ch);
 	return (0);
 }
 /**
