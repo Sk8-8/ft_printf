@@ -83,15 +83,16 @@ int	main(void)
 	char*	ch = NULL;
 	int	i = 0;
 	i = printf("%s\n", ch);
+	i = printf("%s\n", ch);
+	return 0;
 	printf("%d\n", i);
-	printf("%s\n", ch);
+	printf("=========================\n");
 	i = ft_printf("%s\n", ch);
 	printf("%d\n", i);
-	ft_printf("%s\n", ch);
 	return (0);
 }
 /**
- * s : string (et penser au (null) )
+  s : string (et penser au (null) )
   d i : int
  * x : low hexa
  * X : hexa (en maj)
