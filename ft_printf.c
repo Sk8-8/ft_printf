@@ -6,7 +6,7 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:59:44 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/10 14:20:44 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/20 18:06:22 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	ft_putstr_printf(char *str);
 
 int	ft_putnbr_printf(int n);
 
+int	ft_putunnbr_printf(unsigned int n);
+
 int	ft_printf(char *str, ...)
+
 {
 	int	i;
 	int	len;
@@ -38,7 +41,7 @@ int	ft_printf(char *str, ...)
 				len += ft_putstr_printf(va_arg(arglst, char*));
 			}
 			if (str[i] == 'u')
-				len += 0; // XXX
+				len += ft_putunnbr_printf(va_arg(arglst, unsigned int)); 
 			if (str[i] == '%')
 			{
 				len++;
@@ -48,11 +51,6 @@ int	ft_printf(char *str, ...)
 			{
 				len ++;
 				ft_putchar_fd(va_arg(arglst, int), 1);
-			}
-			if (str[i] == 'u')
-			{
-			//	len += uintlen(va_arg(arglst, unsigned int));
-			//	affuint(va_arg(arglst, unsigned int));
 			}
 			if (str[i] == 'x')
 			{
@@ -80,14 +78,12 @@ int	ft_printf(char *str, ...)
 
 int	main(void)
 {
-	char*	ch = NULL;
+	unsigned int	ch = 45822;
 	int	i = 0;
-	i = printf("%s\n", ch);
-	i = printf("%s\n", ch);
-	return 0;
+	i = printf("%u\n", ch);
 	printf("%d\n", i);
 	printf("=========================\n");
-	i = ft_printf("%s\n", ch);
+	i = ft_printf("%u\n", ch);
 	printf("%d\n", i);
 	return (0);
 }
@@ -98,6 +94,6 @@ int	main(void)
  * X : hexa (en maj)
  * p : put pointer (put low hexa, en rajoutant 0x avant ( et penser au (nil) ))
   c : putchar mdr
- * u : put unsigned number 
+  u : put unsigned number 
   %% : afficher %
 **/

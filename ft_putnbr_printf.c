@@ -6,7 +6,7 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 14:05:42 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/10 14:11:49 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:12:33 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,19 @@ int	ft_putstr_printf(char* str)
 		}
 	}
 	return (i);
+}
+
+int	ft_putunnbr_printf(unsigned int n)
+{
+	char	c;
+	int	len;
+
+	len = 0;
+	if (n >= 10)
+	{
+		len += ft_putunnbr_printf(n / 10);
+	}
+	c = (n % 10) + '0';
+	len += write(1, &c, 1);
+	return (len);
 }
