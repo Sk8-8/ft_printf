@@ -12,18 +12,33 @@
 
 #include <stdio.h>
 #include "libft/libft.h"
-/*
-int	lowhex(unsigned int hex)
-{
 
+int ptrprint(unsigned long long int ptr)
+{
+	unsigned long long int	remainder;
+	char	c;
+	char	digit;
+	int		len;
+
+	len = 1;
+	c = 'a';
+	digit = '0';
+	remainder = ptr % 16;
+	if (ptr > 15)
+	{
+		len += ptrprint(ptr / 16);
+	}
+	if (remainder > 9)
+	{
+		ft_putchar_fd((c + remainder - 10), 1);
+	}
+	else
+	{
+		ft_putchar_fd((digit + remainder), 1);
+	}
+	return (len);
 }
 
-int	upphex(unsigned int hex)
-{
-	ft_toupper(lowhex(hex));
-}
-*/
-/*
 int	ptrval(void *ptr)
 {
 	if (ptr == NULL)
@@ -33,38 +48,65 @@ int	ptrval(void *ptr)
 	}
 	else
 	{
-		ft_putstr_fd((char*)ptr, 0);
-		return (ft_strlen(ptr));
+		ft_putstr_printf("0x");
+		return(2 + ptrprint((unsigned long long int)ptr));
 	}
 }
-*/
-void	convert(unsigned int nbr)
+
+
+int	lowhex(unsigned int nbr)
 {
 	unsigned int	remainder;
-	unsigned int	quotient;
 	char	c;
 	char	digit;
+	int		len;
 
+	len = 1;
 	c = 'a';
 	digit = '0';
 	remainder = nbr % 16;
-	quotient = nbr / 16;
-	//condition
+	if (nbr > 15)
 	{
-		if (remainder > 9)
-		{
-			ft_putchar_fd((c + remainder - 10), 1);
-		}
-		else
-		{
-			ft_putchar_fd((digit + remainder), 1);
-		}
+		len += lowhex(nbr / 16);
 	}
+	if (remainder > 9)
+	{
+		ft_putchar_fd((c + remainder - 10), 1);
+	}
+	else
+	{
+		ft_putchar_fd((digit + remainder), 1);
+	}
+	return (len);
 }
 
+int	upphex(unsigned int nbr)
+{
+	unsigned int	remainder;
+	char	c;
+	char	digit;
+	int		len;
+
+	len = 1;
+	c = 'A';
+	digit = '0';
+	remainder = nbr % 16;
+	if (nbr > 15)
+	{
+		len += upphex(nbr / 16);
+	}
+	if (remainder > 9)
+	{
+		ft_putchar_fd((c + remainder - 10), 1);
+	}
+	else
+	{
+		ft_putchar_fd((digit + remainder), 1);
+	}
+	return (len);
+}
 int	main(void)
 {
-	int	nbr = 1024;
-	convert(nbr);
+	ptrval((void*)test);
 	return (0);
 }

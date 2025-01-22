@@ -16,7 +16,7 @@ int	ft_putnbr_printf(int n)
 {
 	char	c;
 	int	len;
-	       
+
 	len = 0;
 	if (n == -2147483648)
 	{
