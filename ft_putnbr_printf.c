@@ -6,7 +6,7 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 14:05:42 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/20 17:12:33 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/23 10:13:08 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_putnbr_printf(int n)
 {
-	char	c;
 	int	len;
+	char	c;
 
 	len = 0;
 	if (n == -2147483648)
@@ -37,7 +37,7 @@ int	ft_putnbr_printf(int n)
 	return (len);
 }
 
-int	ft_putstr_printf(char* str)
+int	ft_putstr_printf(char *str)
 {
 	int	i;
 

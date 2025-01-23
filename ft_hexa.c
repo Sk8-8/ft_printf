@@ -6,19 +6,19 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/20 19:25:16 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:01:31 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft/libft.h"
 
-int ptrprint(unsigned long long int ptr)
+int	ptrprint(unsigned long long int ptr)
 {
 	unsigned long long int	remainder;
 	char	c;
 	char	digit;
-	int		len;
+	int	len;
 
 	len = 1;
 	c = 'a';
@@ -49,17 +49,16 @@ int	ptrval(void *ptr)
 	else
 	{
 		ft_putstr_printf("0x");
-		return(2 + ptrprint((unsigned long long int)ptr));
+		return (2 + ptrprint((unsigned long long int)ptr));
 	}
 }
-
 
 int	lowhex(unsigned int nbr)
 {
 	unsigned int	remainder;
 	char	c;
 	char	digit;
-	int		len;
+	int	len;
 
 	len = 1;
 	c = 'a';
@@ -85,7 +84,7 @@ int	upphex(unsigned int nbr)
 	unsigned int	remainder;
 	char	c;
 	char	digit;
-	int		len;
+	int	len;
 
 	len = 1;
 	c = 'A';
@@ -105,8 +104,10 @@ int	upphex(unsigned int nbr)
 	}
 	return (len);
 }
+/*
 int	main(void)
 {
 	ptrval((void*)test);
 	return (0);
 }
+*/

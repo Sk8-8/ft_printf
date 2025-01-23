@@ -6,7 +6,7 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:59:44 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/20 18:06:22 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:08:12 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ int	ft_putnbr_printf(int n);
 int	ft_putunnbr_printf(unsigned int n);
 
 int	ft_printf(char *str, ...)
-
 {
 	int	i;
 	int	len;
-	va_list arglst;
+	va_list	arglst;
 
 	len = 0;
 	i = 0;
@@ -35,13 +34,11 @@ int	ft_printf(char *str, ...)
 		{
 			i ++;
 			if (str[i] == 'd' || str[i] == 'i')
-				len +=	ft_putnbr_printf(va_arg(arglst, int));
+				len += ft_putnbr_printf(va_arg(arglst, int));
 			if (str[i] == 's')
-			{
 				len += ft_putstr_printf(va_arg(arglst, char*));
-			}
 			if (str[i] == 'u')
-				len += ft_putunnbr_printf(va_arg(arglst, unsigned int)); 
+				len += ft_putunnbr_printf(va_arg(arglst, unsigned int));
 			if (str[i] == '%')
 			{
 				len++;
@@ -61,7 +58,6 @@ int	ft_printf(char *str, ...)
 			if (str[i] == 'p')
 			{
 			}
-			
 		}
 		else
 		{
@@ -73,7 +69,7 @@ int	ft_printf(char *str, ...)
 	va_end(arglst);
 	return (len);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -87,12 +83,13 @@ int	main(void)
 	printf("%d\n", i);
 	return (0);
 }
+*/
 /**
   s : string (et penser au (null) )
   d i : int
- * x : low hexa
- * X : hexa (en maj)
- * p : put pointer (put low hexa, en rajoutant 0x avant ( et penser au (nil) ))
+  x : low hexa
+  X : hexa (en maj)
+  p : put pointer (put low hexa, en rajoutant 0x avant ( et penser au (nil) ))
   c : putchar mdr
   u : put unsigned number 
   %% : afficher %
