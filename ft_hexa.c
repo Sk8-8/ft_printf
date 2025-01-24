@@ -6,7 +6,7 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:11:04 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/23 12:01:31 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/24 18:51:01 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 int	ptrprint(unsigned long long int ptr)
 {
 	unsigned long long int	remainder;
-	char	c;
-	char	digit;
-	int	len;
+	char					c;
+	char					digit;
+	int						len;
 
 	len = 1;
 	c = 'a';
@@ -48,17 +48,17 @@ int	ptrval(void *ptr)
 	}
 	else
 	{
-		ft_putstr_printf("0x");
+		ft_putstr_fd("0x", 1);
 		return (2 + ptrprint((unsigned long long int)ptr));
 	}
 }
 
 int	lowhex(unsigned int nbr)
 {
-	unsigned int	remainder;
-	char	c;
-	char	digit;
-	int	len;
+	unsigned int			remainder;
+	char					c;
+	char					digit;
+	int						len;
 
 	len = 1;
 	c = 'a';
@@ -81,10 +81,10 @@ int	lowhex(unsigned int nbr)
 
 int	upphex(unsigned int nbr)
 {
-	unsigned int	remainder;
-	char	c;
-	char	digit;
-	int	len;
+	unsigned int			remainder;
+	char					c;
+	char					digit;
+	int						len;
 
 	len = 1;
 	c = 'A';
