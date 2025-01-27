@@ -6,11 +6,17 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 14:05:42 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/24 18:46:41 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:16:26 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+int	putchar_printf(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
 int	ft_putnbr_printf(int n)
 {

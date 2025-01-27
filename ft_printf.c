@@ -6,12 +6,14 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:59:44 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/24 18:49:22 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:17:15 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "libft/libft.h"
+#include <unistd.h>
+
+//#include "libft/libft.h"
 
 int	ft_putstr_printf(char *str);
 
@@ -25,6 +27,8 @@ int	upphex(unsigned	int nbr);
 
 int	ptrval(void	*ptr);
 
+int	putchar_printf(char c);
+
 int	selector(char select, va_list arglst)
 {
 	int	len;
@@ -37,15 +41,9 @@ int	selector(char select, va_list arglst)
 	if (select == 'u')
 		len += ft_putunnbr_printf(va_arg(arglst, unsigned int));
 	if (select == '%')
-	{
-		len ++;
-		ft_putchar_fd('%', 1);
-	}
+		len += putchar_printf('%');
 	if (select == 'c')
-	{
-		len ++;
-		ft_putchar_fd(va_arg(arglst, int), 1);
-	}
+		len += putchar_printf(va_arg(arglst, int));
 	if (select == 'x')
 		len += lowhex(va_arg(arglst, unsigned int));
 	if (select == 'X')
@@ -74,28 +72,16 @@ int	ft_printf(char *str, ...)
 	}
 	return (va_end(arglst), len);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
 {
-	unsigned int	ch = 45822;
 	int	i = 0;
-	i = printf("%u\n", ch);
+	i = printf("%%\n");
 	printf("%d\n", i);
 	printf("=========================\n");
-	i = ft_printf("%u\n", ch);
+	i = ft_printf("%%\n");
 	printf("%d\n", i);
 	return (0);
-}
-
-/**
-  s : string (et penser au (null) )
-  d i : int
-  x : low hexa
-  X : hexa (en maj)
-  p : put pointer (put low hexa, en rajoutant 0x avant ( et penser au (nil) ))
-  c : putchar mdr
-  u : put unsigned number 
-  %% : afficher %
-**/
+}*/
