@@ -6,7 +6,7 @@
 /*   By: kguillem <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:59:44 by kguillem          #+#    #+#             */
-/*   Updated: 2025/01/27 20:17:15 by kguillem         ###   ########.fr       */
+/*   Updated: 2025/01/28 01:34:18 by kguillem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	selector(char select, va_list arglst)
 	return (len);
 }
 
-int	ft_printf(char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	int		i;
 	int		len;
