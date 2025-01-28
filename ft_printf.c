@@ -10,24 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
-
-//#include "libft/libft.h"
-
-int	ft_putstr_printf(char *str);
-
-int	ft_putnbr_printf(int n);
-
-int	ft_putunnbr_printf(unsigned int n);
-
-int	lowhex(unsigned int nbr);
-
-int	upphex(unsigned	int nbr);
-
-int	ptrval(void	*ptr);
-
-int	putchar_printf(char c);
+#include "ft_printf.h"
 
 int	selector(char select, va_list arglst)
 {

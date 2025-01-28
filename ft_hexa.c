@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 #include "libft/libft.h"
 
 int	ptrprint(unsigned long long int ptr)
@@ -104,10 +104,3 @@ int	upphex(unsigned int nbr)
 	}
 	return (len);
 }
-/*
-int	main(void)
-{
-	ptrval((void*)test);
-	return (0);
-}
-*/
